@@ -262,7 +262,7 @@ For WordPress:
 
 <pre><code>@media print {  
    h1:after {  
-      content: url(https://chart.googleapis.com/chart?cht=qr&amp;chs=150x150&amp;chl=http://&lt;?phpthe_permalink();?&gt;&amp;choe=UTF-8);  
+      content: url(https://chart.googleapis.com/chart?cht=qr&amp;chs=150x150&amp;chl=http://&lt;?php the_permalink();?&gt;&amp;choe=UTF-8);  
       position: absolute;  
       right: 0;  
       top: 0;  
