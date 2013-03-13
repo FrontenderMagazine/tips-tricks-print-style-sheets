@@ -159,13 +159,13 @@ printed:
    }  
   
    article a[href^=http]:after {  
-      content:" <" attr(href) "> "; 
+      content:" &lt;" attr(href) "&gt; "; 
    }  
 }</code></pre>
 
 Take the following HTML code and content:
 
-<pre><code><p>You’ve explored this <a href="/blog">website</a>; now it’s time to <a href="http://www.webplatform.org/">read other Web development documentation</a>.</p></code></pre>
+<pre><code>&lt;p&gt;You’ve explored this &lt;a href="/blog"&gt;website&lt;/a&gt;; now it’s time to &lt;a href="http://www.webplatform.org/"&gt;read other Web development documentation&lt;/a&gt;.&lt;/p&gt;</code></pre>
 
 Here is the printed result:
 
@@ -191,7 +191,7 @@ features a parent selector that will do the job:
 CSS4 will also make expanding external links easier:
 
 <pre><code>a:not(:local-link):after {  
-   content:" <" attr(href) "> ";  
+   content:" &lt;" attr(href) "&gt; ";  
 }</code></pre>
 
 All of these approaches assume that users will continue to type in URLs by hand.
@@ -219,10 +219,10 @@ required components:
 
 We’d typically associate the URL with a heading element at the top of the page:
 
-<pre><code><header>  
-<h1>Lizabeth’s Salon</h1>  
-<h2>Providing Intellectual Stimulation Online Since 2001</h1>  
-</header></code></pre>
+<pre><code>&lt;header&gt;
+&lt;h1&gt;Lizabeth’s Salon&lt;/h1&gt;  
+&lt;h2&gt;Providing Intellectual Stimulation Online Since 2001&lt;/h1&gt;
+&lt;/header&gt;</code></pre>
 
 To create the printed result, we’ll provide a margin on the right side of the h1
 that is large enough for the heading, and then position a QR code in that area:
@@ -238,7 +238,7 @@ embedded style sheet:
 
 <pre><code>@media print {  
    header h1:after {  
-      content: url(https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://yourdomain.com&choe=UTF-8);  
+      content: url(https://chart.googleapis.com/chart?cht=qr&amp;chs=150x150&amp;chl=http://yourdomain.com&amp;choe=UTF-8);  
       position: absolute;  
       right: 0;  
       top: 0;  
@@ -251,7 +251,7 @@ you can provide the URL of the current page automatically:
 
 <pre><code>@media print {  
    h1:after {  
-      content: url(https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://<?=$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];?>&choe=UTF-8);  
+      content: url(https://chart.googleapis.com/chart?cht=qr&amp;chs=150x150&amp;chl=http://&lt;?=$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];?&gt;&amp;choe=UTF-8);  
       position: absolute;  
       right: 0;  
       top: 0;  
@@ -262,7 +262,7 @@ For WordPress:
 
 <pre><code>@media print {  
    h1:after {  
-      content: url(https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://<?phpthe_permalink();?>&choe=UTF-8);  
+      content: url(https://chart.googleapis.com/chart?cht=qr&amp;chs=150x150&amp;chl=http://&lt;?phpthe_permalink();?&gt;&amp;choe=UTF-8);  
       position: absolute;  
       right: 0;  
       top: 0;  
@@ -322,14 +322,14 @@ black to white and vice versa — but they only work in Chrome and Safari. To
 cover Firefox, we need a different approach — the equivalent filter written as a
 separate SVG file:
 
-<pre><code><svg xmlns="http://www.w3.org/2000/svg">  
-<filter id="negative">  
-<feColorMatrix values="-1 0 0 0 1   
+<pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;filter id="negative"&gt;
+&lt;feColorMatrix values="-1 0 0 0 1   
 0 -1 0 0 1   
 0 0 -1 0 1   
-0 0 0 1 0" />  
-</filter>  
-</svg></code></pre>
+0 0 0 1 0" /&gt;
+&lt;/filter&gt;
+&lt;/svg&gt;</code></pre>
 
 The workings of the `feColorMatrix` SVG filter are a little complex to cover
 here. Much more information can be found in the article "[Applying Color Tints to Web Pages With SVG Filters and JavaScript](http://dev.opera.com/articles/view/applying-color-tints-to-web-pages-with-s/)" 
