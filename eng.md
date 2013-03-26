@@ -19,9 +19,9 @@ printers and LCD screens:
 First, let’s cover the basics. Modern print style sheets are typically placed
 within a media query:
 
-<pre><code>@media print {  
-  
-}</code></pre>
+    @media print {  
+      
+    }
 
 Recreating the entire CSS for your website is not necessary because the default
 styles will, on the whole, be inherited by the print query; only the differences
@@ -30,12 +30,12 @@ printing in order to save toner, but this won’t have the same degree of qualit
 as a handcrafted solution. For best results, **make color changes explicit**. At
 the very least, a basic print media query should consist of the following:
 
-<pre><code>@media print {  
-   body {  
-      color: #000;  
-      background: #fff;  
-   }  
-}</code></pre>
+    @media print {  
+        body {  
+            color: #000;  
+            background: #fff;  
+        }  
+    }
 
 While `display: none` has rightly been [derided in responsive design](http://laurakalbag.com/display-none/), 
 it is entirely appropriate for print style sheets: in most cases, our goal is 
@@ -44,23 +44,23 @@ well-designed print version of it. As a second step, eliminate page elements
 that are simply irrelevant in print, including navigation bars and background 
 images.
 
-<pre><code>/* Default styles */  
-  
-h1 {  
-   color: #fff;  
-   background: url(banner.jpg);  
-}  
-  
-@media print {  
-   h1 {  
-      color: #000;  
-      background: none;  
-   }  
-  
-   nav, aside {  
-      display: none;  
-   }  
-}</code></pre>
+    /* Default styles */  
+      
+    h1 {  
+        color: #fff;  
+        background: url(banner.jpg);  
+    }  
+      
+    @media print {  
+        h1 {  
+            color: #000;  
+            background: none;  
+        }  
+
+        nav, aside {  
+            display: none;  
+        }  
+    }
 
 Writing a print style sheet is one of the few times when you’ll ever use
 centimeters or inches in CSS. Largely irrelevant to screens, real-world
@@ -69,26 +69,26 @@ printed page effectively, write CSS to display your content edge to edge,
 negating any margins or padding that may be present, and balance this with an
 `@page` rule:
 
-<pre><code>@media print {  
-   h1 {  
-      color: #000;  
-      background: none;  
-   }  
-  
-   nav, aside {  
-      display: none;  
-   }  
-  
-   body, article {  
-      width: 100%;  
-      margin: 0;  
-      padding: 0;  
-   }  
-  
-   @page {  
-      margin: 2cm;  
-   }  
-}</code></pre>
+    @media print {  
+        h1 {  
+            color: #000;  
+            background: none;  
+        }  
+
+        nav, aside {  
+            display: none;  
+        }  
+
+        body, article {  
+            width: 100%;  
+            margin: 0;  
+            padding: 0;  
+        }  
+
+        @page {  
+            margin: 2cm;  
+        }  
+    }
 
 For content to which users can be expected to add handwritten notes on the page,
 such as educational material, you might consider increasing the print margin.
@@ -97,29 +97,29 @@ We also need to ensure that content is not broken across pages when printed. One
 obvious step is to prevent headings from being printed at the bottom of the
 page:
 
-<pre><code>h2, h3 {  
-   page-break-after: avoid;  
-}</code></pre>
+    h2, h3 {  
+        page-break-after: avoid;  
+    }
 
 Another rule will prevent images from bleeding over the edge of the printed 
 page:
 
-<pre><code>img {  
-   max-width: 100% !important;  
-}</code></pre>
+    img {  
+        max-width: 100% !important;  
+    }
 
 A third will ensure that articles always start on a fresh page:
 
-<pre><code>article {  
-   page-break-before: always;  
-}</code></pre>
+    article {  
+        page-break-before: always;  
+    }
 
 Finally, we can prevent large elements, such as unordered lists and images, from
 being split across multiple pages.
 
-<pre><code>ul, img {  
-   page-break-inside: avoid;  
-}</code></pre>
+    ul, img {  
+        page-break-inside: avoid;  
+    }
 
 While these declarations are not exhaustive, they’re a good start.
 
@@ -132,12 +132,12 @@ colors as seen on screen (i.e. force any background images and colors to appear
 on the printed page). Generally speaking, we would do this for color printers,
 which we can test for in a separate media query:
 
-<pre><code>@media print and (color) {  
-   * {  
-      -webkit-print-color-adjust: exact;  
-      print-color-adjust: exact;  
-   }  
-}</code></pre>
+    @media print and (color) {  
+        * {  
+            -webkit-print-color-adjust: exact;  
+            print-color-adjust: exact;  
+        }  
+    }
 
 Sadly, there is (as yet) no immediate equivalent in Firefox, Opera or Internet
 Explorer.
@@ -152,20 +152,20 @@ links, you can easily do this through an attribute selector and `:after` pseudo-
 classes, thus preventing internal links and links around images from being
 printed:
 
-<pre><code>@media print {  
-   article a {  
-      font-weight: bolder;  
-      text-decoration: none;  
-   }  
-  
-   article a[href^=http]:after {  
-      content:" &lt;" attr(href) "&gt; "; 
-   }  
-}</code></pre>
+    @media print {  
+        article a {  
+            font-weight: bolder;  
+            text-decoration: none;  
+        }  
+
+        article a[href^=http]:after {  
+            content:" <" attr(href) "> "; 
+        }  
+    }
 
 Take the following HTML code and content:
 
-<pre><code>&lt;p&gt;You’ve explored this &lt;a href="/blog"&gt;website&lt;/a&gt;; now it’s time to &lt;a href="http://www.webplatform.org/"&gt;read other Web development documentation&lt;/a&gt;.&lt;/p&gt;</code></pre>
+    <p>You’ve explored this <a href="/blog">website</a>; now it’s time to <a href="http://www.webplatform.org/">read other Web development documentation</a>.</p>
 
 Here is the printed result:
 
@@ -175,24 +175,24 @@ One issue is that anchor links and links around images will also be expanded on
 the printed page. We can fix the anchor links fairly readily with a
 countermanding CSS rule:
 
-<pre><code>article a[href^="#"]:after {  
-   content: "";  
-}</code></pre>
+    article a[href^="#"]:after {  
+        content: "";  
+    }
 
 Links around images are rather more difficult, because CSS does not currently
 allow for the selection of an element based on its children. Ideally, links
 around images would have a class that we could target via CSS. Longer term, CSS4
 features a parent selector that will do the job:
 
-<pre><code>$a:after > img {  
-   content: "";  
-}</code></pre>
+    $a:after > img {  
+        content: "";  
+    }
 
 CSS4 will also make expanding external links easier:
 
-<pre><code>a:not(:local-link):after {  
-   content:" &lt;" attr(href) "&gt; ";  
-}</code></pre>
+    a:not(:local-link):after {  
+        content:" <" attr(href) "> ";  
+    }
 
 All of these approaches assume that users will continue to type in URLs by hand.
 A better solution is to make the digital version of the page easier to access by
@@ -219,55 +219,55 @@ required components:
 
 We’d typically associate the URL with a heading element at the top of the page:
 
-<pre><code>&lt;header&gt;
-&lt;h1&gt;Lizabeth’s Salon&lt;/h1&gt;  
-&lt;h2&gt;Providing Intellectual Stimulation Online Since 2001&lt;/h1&gt;
-&lt;/header&gt;</code></pre>
+    <header>
+    <h1>Lizabeth’s Salon</h1>
+    <h2>Providing Intellectual Stimulation Online Since 2001</h1>
+    </header>
 
 To create the printed result, we’ll provide a margin on the right side of the h1
 that is large enough for the heading, and then position a QR code in that area:
 
-<pre><code>header h1 {  
-   margin-right: 200px;  
-   margin-bottom: 2rem;  
-   line-height: 1.5;  
-}</code></pre>
+    header h1 {  
+        margin-right: 200px;  
+        margin-bottom: 2rem;  
+        line-height: 1.5;  
+    }
 
 Because the QR code will be unique to each page, this would be added as an
 embedded style sheet:
 
-<pre><code>@media print {  
-   header h1:after {  
-      content: url(https://chart.googleapis.com/chart?cht=qr&amp;chs=150x150&amp;chl=http://yourdomain.com&amp;choe=UTF-8);  
-      position: absolute;  
-      right: 0;  
-      top: 0;  
-   }  
-}</code></pre>
+    @media print {  
+        header h1:after {  
+            content: url(https://chart.googleapis.com/chart?cht=qr&amp;chs=150x150&amp;chl=http://yourdomain.com&amp;choe=UTF-8);  
+            position: absolute;  
+            right: 0;  
+            top: 0;  
+        }  
+    }
 
 This approach has the downside of forcing the developer to enter a URL
 individually for each page into the API code. If your Web host is running PHP,
 you can provide the URL of the current page automatically:
 
-<pre><code>@media print {  
-   h1:after {  
-      content: url(https://chart.googleapis.com/chart?cht=qr&amp;chs=150x150&amp;chl=http://&lt;?=$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];?&gt;&amp;choe=UTF-8);  
-      position: absolute;  
-      right: 0;  
-      top: 0;  
-   }  
-}</code></pre>
+    @media print {  
+        h1:after {  
+            content: url(https://chart.googleapis.com/chart?cht=qr&amp;chs=150x150&amp;chl=http://<?=$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];?>&amp;choe=UTF-8);  
+            position: absolute;  
+            right: 0;  
+            top: 0;  
+        }  
+    }
 
 For WordPress:
 
-<pre><code>@media print {  
-   h1:after {  
-      content: url(https://chart.googleapis.com/chart?cht=qr&amp;chs=150x150&amp;chl=http://&lt;?php the_permalink();?&gt;&amp;choe=UTF-8);  
-      position: absolute;  
-      right: 0;  
-      top: 0;  
-   }  
-}</code></pre>
+    @media print {  
+        h1:after {  
+            content: url(https://chart.googleapis.com/chart?cht=qr&amp;chs=150x150&amp;chl=http://<?php the_permalink();?>&amp;choe=UTF-8);  
+            position: absolute;  
+            right: 0;  
+            top: 0;  
+        }  
+    }
 
 Obviously, both of the solutions above will only work on PHP and WordPress
 pages.
@@ -304,32 +304,32 @@ little benefit. Instead, I recommend using CSS filters (and their SVG
 equivalent, for Firefox) to invert the image just before it hits the printed
 page:
 
-<pre><code>@media print {  
-   header {  
-      background: none;  
-      color: #000;  
-   }  
-  
-   header img {  
-      filter: url(inverse.svg#negative);  
-      -webkit-filter: invert(100%);  
-      filter: invert(100%);  
-   }  
-}</code></pre>
+    @media print {  
+        header {  
+           background: none;  
+            color: #000;  
+        }  
+
+        header img {  
+            filter: url(inverse.svg#negative);  
+            -webkit-filter: invert(100%);  
+            filter: invert(100%);  
+        }  
+    }
 
 CSS3 filters do what you’d expect — invert the colors in header images, turning
 black to white and vice versa — but they only work in Chrome and Safari. To
 cover Firefox, we need a different approach — the equivalent filter written as a
 separate SVG file:
 
-<pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg"&gt;
-&lt;filter id="negative"&gt;
-&lt;feColorMatrix values="-1 0 0 0 1   
-0 -1 0 0 1   
-0 0 -1 0 1   
-0 0 0 1 0" /&gt;
-&lt;/filter&gt;
-&lt;/svg&gt;</code></pre>
+    <svg xmlns="http://www.w3.org/2000/svg">
+    <filter id="negative">
+    <feColorMatrix values="-1 0 0 0 1   
+    0 -1 0 0 1   
+    0 0 -1 0 1   
+    0 0 0 1 0" />
+    </filter>
+    </svg>
 
 The workings of the `feColorMatrix` SVG filter are a little complex to cover
 here. Much more information can be found in the article "[Applying Color Tints to Web Pages With SVG Filters and JavaScript](http://dev.opera.com/articles/view/applying-color-tints-to-web-pages-with-s/)" 
