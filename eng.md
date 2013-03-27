@@ -169,7 +169,7 @@ Take the following HTML code and content:
 
 Here is the printed result:
 
-![Screen Shot 2013-01-13 at 8.58.10 PM](img/Screen-Shot-2013-01-13-at-8.58.10-PM.png)
+![Screen Shot 2013-01-13 at 8.58.10 PM][Screen Shot 2013-01-13 at 8.58.10 PM]
 
 One issue is that anchor links and links around images will also be expanded on
 the printed page. We can fix the anchor links fairly readily with a
@@ -205,7 +205,7 @@ circumstances. One obvious example is providing an easily-scanned sigil on a
 printed Web page that enables the user to return to the live version without
 having to type the URL.
 
-![Web page printed with a self-referential QR code](img/lizabeth.png)
+![Web page printed with a self-referential QR code][Web page printed with a self-referential QR code]
 
 *Web page printed with a self-referential QR code. [Larger view][3].*
 
@@ -338,7 +338,7 @@ on Dev.Opera.
 The result of printing either form of logo (i.e. alpha-masked PNG or solid-black
 background) is now this:
 
-![logo-inverted-printed](img/logo-inverted-printed-300x91.png)
+![logo-inverted-printed][logo-inverted-printed]
 
 ## Conclusion
 
@@ -380,3 +380,7 @@ equal partner in Web design.
 [6]: http://www.alistapart.com/articles/improvingprint/
 [7]: http://www.alistapart.com/articles/building-books-with-css3/
 [8]: http://coding.smashingmagazine.com/2011/11/24/how-to-set-up-a-print-style-sheet/
+
+[Screen Shot 2013-01-13 at 8.58.10 PM]: img/Screen-Shot-2013-01-13-at-8.58.10-PM.png
+[Web page printed with a self-referential QR code]: img/lizabeth.png
+[logo-inverted-printed]: img/logo-inverted-printed-300x91.png
