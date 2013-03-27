@@ -9,7 +9,7 @@ even in this age of digital saturation.
 Web developers can take several steps to bridge the gap between the worlds of
 printers and LCD screens:
 
-* Treat print as an equal partner in [adaptive and responsive design](http://uxdesign.smashingmagazine.com/2012/11/08/ux-design-qa-with-christian-holst/).
+* Treat print as an equal partner in [adaptive and responsive design][1].
 * Print background images and colors, where appropriate.
 * Add visible URLs or scannable links for easy reference from the printed page.
 * Use CSS filters to improve the result of printed graphics.
@@ -37,7 +37,7 @@ the very least, a basic print media query should consist of the following:
         }  
     }
 
-While `display: none` has rightly been [derided in responsive design](http://laurakalbag.com/display-none/), 
+While `display: none` has rightly been [derided in responsive design][2], 
 it is entirely appropriate for print style sheets: in most cases, our goal is 
 not to recreate a screenshot of an entire page, but to provide a concise, 
 well-designed print version of it. As a second step, eliminate page elements 
@@ -207,7 +207,7 @@ having to type the URL.
 
 ![Web page printed with a self-referential QR code](img/lizabeth.png)
 
-*Web page printed with a self-referential QR code. [Larger view](img/lizabeth_big.png).*
+*Web page printed with a self-referential QR code. [Larger view][3].*
 
 To create the matching QR code, we’ll use Google’s Chart API, which has four
 required components:
@@ -332,7 +332,7 @@ separate SVG file:
     </svg>
 
 The workings of the `feColorMatrix` SVG filter are a little complex to cover
-here. Much more information can be found in the article "[Applying Color Tints to Web Pages With SVG Filters and JavaScript](http://dev.opera.com/articles/view/applying-color-tints-to-web-pages-with-s/)" 
+here. Much more information can be found in the article "[Applying Color Tints to Web Pages With SVG Filters and JavaScript][4]" 
 on Dev.Opera.
 
 The result of printing either form of logo (i.e. alpha-masked PNG or solid-black
@@ -367,7 +367,16 @@ through its articles and tutorials. While some of the following resources are
 now fairly old, they remain relevant to anyone who wishes to explore print as an
 equal partner in Web design.
 
-* [CSS Design: Going to Print](http://www.alistapart.com/articles/goingtoprint/), Eric Meyer (10 May 2002)
-* [Improving Link Design for Print](http://www.alistapart.com/articles/improvingprint/), Aaron Gustafson (19 September 2005)
-* [Building Books With CSS3](http://www.alistapart.com/articles/building-books-with-css3/), Nellie McKesson (12 June 2012)
-* [How To Set Up A Print Style Sheet](http://coding.smashingmagazine.com/2011/11/24/how-to-set-up-a-print-style-sheet/), Christian Krammer (24 November 2011)
+* [CSS Design: Going to Print][5], Eric Meyer (10 May 2002)
+* [Improving Link Design for Print][6], Aaron Gustafson (19 September 2005)
+* [Building Books With CSS3][7], Nellie McKesson (12 June 2012)
+* [How To Set Up A Print Style Sheet][8], Christian Krammer (24 November 2011)
+
+[1]: http://uxdesign.smashingmagazine.com/2012/11/08/ux-design-qa-with-christian-holst/
+[2]: http://laurakalbag.com/display-none/
+[3]: img/lizabeth_big.png
+[4]: http://dev.opera.com/articles/view/applying-color-tints-to-web-pages-with-s/
+[5]: http://www.alistapart.com/articles/goingtoprint/
+[6]: http://www.alistapart.com/articles/improvingprint/
+[7]: http://www.alistapart.com/articles/building-books-with-css3/
+[8]: http://coding.smashingmagazine.com/2011/11/24/how-to-set-up-a-print-style-sheet/
