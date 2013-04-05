@@ -284,15 +284,15 @@ QR-код:
 При печати логотипов браузеры зачаступю испытывают проблемы, особенно, если
 светлый логотип расположен на темном фоне страницы:
 
-<table>
+<table class="layout-table">
    <tbody>
       <tr>
          <th>Изображение логотипа с заливкой</th>
          <th>Распечатанная версия</th>
       </tr>
       <tr>
-         <td><a href="img/logo-black-background-300x105.png" style="border: none;"><img alt="logo-black-background" src="img/logo-black-background-300x105.png"></a></td>
-         <td><a href="img/logo-black-background-printed-300x80.png" style="border: none;"><img alt="logo-black-background-printed" src="img/logo-black-background-printed-300x80.png"></a></td>
+         <td><a href="img/logo-black-background-300x105.png"><img alt="logo-black-background" src="img/logo-black-background-300x105.png"></a></td>
+         <td><a href="img/logo-black-background-printed-300x80.png"><img alt="logo-black-background-printed" src="img/logo-black-background-printed-300x80.png"></a></td>
       </tr>
       <tr>
          <th>Логотип в виде PNG с альфа-каналом</th>
