@@ -384,7 +384,7 @@ A List Apart имеет объемный и заслуживающий похв�
 
 [1]: http://uxdesign.smashingmagazine.com/2012/11/08/ux-design-qa-with-christian-holst/
 [2]: http://laurakalbag.com/display-none/
-[3]: img/lizabeth_big.png
+[3]: img/lizabeth_big-ru.png
 [4]: http://dev.opera.com/articles/view/applying-color-tints-to-web-pages-with-s/
 [5]: http://www.alistapart.com/articles/goingtoprint/
 [6]: http://www.alistapart.com/articles/improvingprint/
@@ -392,5 +392,5 @@ A List Apart имеет объемный и заслуживающий похв�
 [8]: http://coding.smashingmagazine.com/2011/11/24/how-to-set-up-a-print-style-sheet/
 
 [Отображение URL ссылок при печати]: img/Screen-Shot-2013-01-13-at-8.58.10-PM-ru.png
-[Страница с распечатанным QR-кодом, ведущим на веб-версию]: img/lizabeth.png
+[Страница с распечатанным QR-кодом, ведущим на веб-версию]: img/lizabeth_big-ru.png
 [Инвертированный логотип при печати]: img/logo-inverted-printed-300x91.png
